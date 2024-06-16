@@ -14,11 +14,11 @@ import NextTopLoader from "nextjs-toploader";
 
 export const metadata: Metadata = {
   title: {
-    template: "%s - Tahir Abbas",
+    template: "Tahir Abbas",
     default: "Tahir Abbas - Web Developer",
   },
   description:
-    "Portfolio and personal website of Tahir Abbas, a web developer based in Indonesia.",
+    "Portfolio and personal website of Tahir Abbas, a web developer based in Pakistan.",
 };
 
 import { DefaultAppShell } from "@/components/appshell";

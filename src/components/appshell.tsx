@@ -108,13 +108,7 @@ export function DefaultAppShell({ children }: { children: React.ReactNode }) {
                   label: "text-black dark:text-inherit",
                 }}
               >
-                
-
-
-
-
-
-
+                Home
               </Button>
               <Button
                 component={Link}
@@ -164,13 +158,7 @@ export function DefaultAppShell({ children }: { children: React.ReactNode }) {
 
       <AppShell.Navbar p="xs" mt={80}>
         <NavLink
-          label="
-
-
-
-
-
-"
+          label="Home"
           onClick={toggle}
           component={Link}
           href="/"
