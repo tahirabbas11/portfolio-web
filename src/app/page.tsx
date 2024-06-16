@@ -52,7 +52,7 @@ export default function Home() {
                 and React since 2017. I have created dozens of mobile apps and
                 websites for clients like governments and multinational
                 companies. */}
-                I aim to secure a place where I can gain knowledge and enhance my understandings and my experience by ensuring a responsible career and making full use of my qualifications and skills while significantly contributing for the organization's growth.
+                I aim to secure a place where I can gain knowledge and enhance my understandings and my experience by ensuring a responsible career and making full use of my qualifications and skills while significantly contributing for the organization&apos;s growth.
               </p>
 
               {/* socials  */}
@@ -204,13 +204,14 @@ export default function Home() {
         </div>
 
         <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
-  {portfolioData.slice(0, 4).map((portfolio) => (
-    <div key={portfolio.title} className="flex flex-col h-full">
-      <PortfolioCard portfolio={portfolio} className="flex-1" />
-    </div>
-  ))}
-</div>
-
+          {portfolioData.slice(0, 4).map((portfolio) => (
+            <PortfolioCard
+              key={portfolio.title}
+              portfolio={portfolio}
+              className="min-h-[30rem]"
+            />
+          ))}
+        </div>
       </Container>
     </div>
   );
