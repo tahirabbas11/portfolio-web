@@ -67,9 +67,7 @@ export default function ContactForm({ Page }: { Page: string }) {
     }
   };
 
-  const currentTheme =
-    (localStorage.getItem("mantine-color-scheme-value") as string | null) ||
-    "dark";
+  
 
   return (
     <div className="space-y-4">
@@ -135,7 +133,7 @@ export default function ContactForm({ Page }: { Page: string }) {
               visible={true}
               height="38px"
               width="100"
-              color={currentTheme === "dark" ? "white" : "black"}
+              color="black"
               ariaLabel="line-wave-loading"
               wrapperStyle={{}}
               wrapperClass=""
