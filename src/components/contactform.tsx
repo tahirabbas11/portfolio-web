@@ -10,7 +10,7 @@ import {
   matches,
 } from "@mantine/form";
 
-export default function ContactForm({ Page }: { Page: string }) {
+export default function ContactForm({ Page }:  { Page: string }) {
   const form = useForm({
     initialValues: {
       name: "",
@@ -34,7 +34,7 @@ export default function ContactForm({ Page }: { Page: string }) {
 
   return (
     <div className="space-y-4">
-      {!Page && <h2 className="text-2xl font-bold lg:text-4xl">Contact Me</h2>}
+      {Page != 'get-in-touch' && <h2 className="text-2xl font-bold lg:text-4xl">Contact Me</h2>}
       <form
         onSubmit={form.onSubmit(handleSubmitContactForm)}
         className="space-y-4"

@@ -270,7 +270,7 @@ export default function Home() {
   </div>
 </Container> */}
       <Container className="space-y-12 overflow-hidden rounded-lg border-2 border-[#eaeaea] bg-zinc-50 p-4 dark:border dark:border-neutral-600 dark:bg-zinc-900">
-        <ContactForm></ContactForm>
+        <ContactForm Page = {'none'}></ContactForm>
       </Container>
     </div>
   );
