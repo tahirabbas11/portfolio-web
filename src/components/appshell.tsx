@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo } from "react";
+import { useMemo, useEffect, useState } from "react";
 import { AppShell, rem, Button, NavLink, Box, Burger } from "@mantine/core";
 import { useHeadroom, useDisclosure } from "@mantine/hooks";
 import Image from "next/image";
@@ -24,8 +24,14 @@ export function DefaultAppShell({ children }: { children: React.ReactNode }) {
   const [opened, { toggle }] = useDisclosure();
   const pathname = usePathname();
   const pinned = useHeadroom({ fixedAt: 140 });
+  const [currentYear, setCurrentYear] = useState(new Date().getFullYear());
 
-  const currentYear = useMemo(() => new Date().getFullYear(), []);
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentYear(new Date().getFullYear());
+    }, 1000);
+    return () => clearInterval(interval);
+  }, []);
 
   const handleContacts = () => {
     const contacts = document.getElementById("contacts");
