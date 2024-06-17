@@ -5,13 +5,15 @@ import {
   IconBrandLinkedin,
   IconBrandGithub,
   IconBrandX,
+  IconMail,
+  IconBrandFacebook,
 } from "@tabler/icons-react";
 
 import { Highlight, HeroHighlight } from "@/components/hero-highlight";
 import { Meteors } from "@/components/meteors";
 import { Container } from "@/components/container";
 import { PortfolioCard } from "@/components/portfolio";
-
+import ContactForm from "@/components/contactform";
 // import photoYudis from "@/assets/images/photo_yudis.jpg";
 
 import { portfolioData } from "@/data/portfolio";
@@ -43,7 +45,7 @@ export default function Home() {
               </h1>
 
               <h2 className="mb-4 text-xl font-semibold lg:text-2xl">
-                Specializing in Node.js , Express.js, Next.JS, React, and React.
+                Specializing in Node.js , Express.js, Next.JS, and React.
               </h2>
 
               <p className="text-sm lg:text-base">
@@ -52,7 +54,10 @@ export default function Home() {
                 and React since 2017. I have created dozens of mobile apps and
                 websites for clients like governments and multinational
                 companies. */}
-                I aim to secure a place where I can gain knowledge and enhance my understandings and my experience by ensuring a responsible career and making full use of my qualifications and skills while significantly contributing for the organization&apos;s growth.
+                I aim to secure a place where I can gain knowledge and enhance
+                my understandings and my experience by ensuring a responsible
+                career and making full use of my qualifications and skills while
+                significantly contributing for the organization&apos;s growth.
               </p>
 
               {/* socials  */}
@@ -68,10 +73,7 @@ export default function Home() {
                   />
                 </Link>
 
-                <Link
-                  href={"https://github.com/tahirabbas11"}
-                  target="_blank"
-                >
+                <Link href={"https://github.com/tahirabbas11"} target="_blank">
                   <IconBrandGithub
                     size={35}
                     className="duration-200 hover:scale-150 hover:text-yellow-500"
@@ -155,29 +157,29 @@ export default function Home() {
         <h2 className="text-2xl font-bold lg:text-4xl">Skills</h2>
 
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-4">
-  {skills.map((skill) => (
-    <div key={skill.name} className="flex flex-col justify-center space-y-4">
-      <div className="flex space-x-4 items-center">
-        <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center overflow-clip rounded-lg bg-transparent">
-          <img
-            src={skill.logo}
-            alt={`${skill.name} Logo`}
-            className="w-full flex-shrink-0 object-cover"
-          />
+          {skills.map((skill) => (
+            <div
+              key={skill.name}
+              className="flex flex-col justify-center space-y-4"
+            >
+              <div className="flex items-center space-x-4">
+                <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center overflow-clip rounded-lg bg-transparent">
+                  <img
+                    src={skill.logo}
+                    alt={`${skill.name} Logo`}
+                    className="w-full flex-shrink-0 object-cover"
+                  />
+                </div>
+
+                <div>
+                  <h3 className="mb-1 text-lg font-bold leading-tight">
+                    {skill.name}
+                  </h3>
+                </div>
+              </div>
+            </div>
+          ))}
         </div>
-
-        <div>
-          <h3 className="mb-1 text-lg font-bold leading-tight">
-            {skill.name}
-          </h3>
-        </div>
-      </div>
-    </div>
-  ))}
-</div>
-
-
-
 
         {/* go to Github button */}
         {/* <Link
@@ -212,6 +214,63 @@ export default function Home() {
             />
           ))}
         </div>
+      </Container>
+      {/* Contact Form
+<Container className="space-y-12 overflow-hidden rounded-lg border-2 border-[#eaeaea] bg-zinc-50 p-4 dark:border dark:border-neutral-600 dark:bg-zinc-900">
+  <div className="space-y-4">
+    <h2 className="text-2xl font-bold lg:text-4xl">Contact Me</h2>
+    <form className="space-y-4">
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+        <div>
+          <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
+            Name
+          </label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            placeholder=" Name"
+            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-yellow-500 focus:ring focus:ring-yellow-500 focus:ring-opacity-50 bg-white dark:bg-[#2E2E2E] dark:border-gray-700 dark:focus:border-yellow-500 dark:focus:ring-yellow-500"
+          />
+        </div>
+        <div>
+          <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
+            Email
+          </label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder=" email@gmail.com"
+            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-yellow-500 focus:ring focus:ring-yellow-500 focus:ring-opacity-50 bg-white dark:bg-[#2E2E2E] dark:border-gray-700 dark:focus:border-yellow-500 dark:focus:ring-yellow-500"
+          />
+        </div>
+      </div>
+      <div>
+        <label htmlFor="message" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
+          Message
+        </label>
+        <textarea
+          id="message"
+          name="message"
+          rows="4"
+          placeholder=" Write your message"
+          className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-yellow-500 focus:ring focus:ring-yellow-500 focus:ring-opacity-50 bg-white dark:bg-[#2E2E2E] dark:border-gray-700 dark:focus:border-yellow-500 dark:focus:ring-yellow-500"
+        ></textarea>
+      </div>
+      <div>
+        <button
+          type="submit"
+          className="w-full rounded-lg bg-yellow-500 py-2 px-4 font-semibold text-white shadow-md hover:bg-yellow-600 focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:ring-opacity-50"
+        >
+          Submit
+        </button>
+      </div>
+    </form>
+  </div>
+</Container> */}
+      <Container className="space-y-12 overflow-hidden rounded-lg border-2 border-[#eaeaea] bg-zinc-50 p-4 dark:border dark:border-neutral-600 dark:bg-zinc-900">
+        <ContactForm></ContactForm>
       </Container>
     </div>
   );

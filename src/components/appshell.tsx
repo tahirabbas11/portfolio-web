@@ -136,6 +136,23 @@ export function DefaultAppShell({ children }: { children: React.ReactNode }) {
               >
                 Blogs
               </Button> */}
+
+              <Button
+                component={Link}
+                href="/get-in-touch"
+                size="xs"
+                radius="xl"
+                variant={
+                  pathname.startsWith("/get-in-touch") ? "filled" : "subtle"
+                }
+                classNames={{
+                  label: "text-black dark:text-inherit",
+                }}
+                // onClick={handleContacts}
+              >
+                Get in Touch
+              </Button>
+
               <Button
                 component={Link}
                 href="#contacts"
@@ -166,11 +183,19 @@ export function DefaultAppShell({ children }: { children: React.ReactNode }) {
         />
 
         <NavLink
-          label="Projects"
+          label="Portfolio"
           onClick={toggle}
           component={Link}
           href="/portfolio"
           active={pathname.startsWith("/portfolio")}
+        />
+
+        <NavLink
+          label="Get in Touch"
+          onClick={toggle}
+          component={Link}
+          href="/get-in-touch"
+          active={pathname.startsWith("/get-in-touch")}
         />
 
         {/* <NavLink
