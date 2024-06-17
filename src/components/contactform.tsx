@@ -10,7 +10,9 @@ import {
   matches,
 } from "@mantine/form";
 import axios from "axios";
+import { useState } from "react";
 import Swal from "sweetalert2";
+import { LineWave } from "react-loader-spinner";
 
 export default function ContactForm({ Page }: { Page: string }) {
   const form = useForm({
@@ -26,11 +28,14 @@ export default function ContactForm({ Page }: { Page: string }) {
     },
   });
 
+  const [isLoading, setIsLoading] = useState(false);
+
   const handleSubmitContactForm = async (values: {
     name: string;
     email: string;
     message: string;
   }) => {
+    setIsLoading(true);
     const currentTheme =
       (localStorage.getItem("mantine-color-scheme-value") as string | null) ||
       "dark";
@@ -43,7 +48,10 @@ export default function ContactForm({ Page }: { Page: string }) {
         background: currentTheme === "dark" ? "#2E2E2E" : "white",
         confirmButtonColor: "#EAB305",
         color: currentTheme === "dark" ? "white" : "black",
-      }).then(() => form.reset());
+      }).then(() => {
+        setIsLoading(false);
+        form.reset();
+      });
     } catch (error) {
       Swal.fire({
         icon: "error",
@@ -52,9 +60,16 @@ export default function ContactForm({ Page }: { Page: string }) {
         background: currentTheme === "dark" ? "#2E2E2E" : "white",
         confirmButtonColor: "#EAB305",
         color: currentTheme === "dark" ? "white" : "black",
-      }).then(() => form.reset());
+      }).then(() => {
+        setIsLoading(false);
+        form.reset();
+      });
     }
   };
+
+  const currentTheme =
+    (localStorage.getItem("mantine-color-scheme-value") as string | null) ||
+    "dark";
 
   return (
     <div className="space-y-4">
@@ -62,7 +77,10 @@ export default function ContactForm({ Page }: { Page: string }) {
         <h2 className="text-2xl font-bold lg:text-4xl">Contact Me</h2>
       )}
       <form
-        onSubmit={form.onSubmit(handleSubmitContactForm)}
+        onSubmit={(e) => {
+          e.preventDefault();
+          form.onSubmit(handleSubmitContactForm)();
+        }}
         className="space-y-4"
       >
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
@@ -110,8 +128,23 @@ export default function ContactForm({ Page }: { Page: string }) {
           type="submit"
           fullWidth
           className="bg-yellow-500 hover:bg-yellow-600"
+          disabled={isLoading}
         >
-          Submit
+          {isLoading && (
+            <LineWave
+              visible={true}
+              height="38px"
+              width="100"
+              color={currentTheme === "dark" ? "white" : "black"}
+              ariaLabel="line-wave-loading"
+              wrapperStyle={{}}
+              wrapperClass=""
+              firstLineColor=""
+              middleLineColor=""
+              lastLineColor=""
+            />
+          )}
+          {!isLoading && "Submit"}
         </Button>
       </form>
     </div>
