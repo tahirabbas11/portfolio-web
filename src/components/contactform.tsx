@@ -43,16 +43,16 @@ export default function ContactForm({ Page }: { Page: string }) {
         background: currentTheme === "dark" ? "#2E2E2E" : "white",
         confirmButtonColor: "#EAB305",
         color: currentTheme === "dark" ? "white" : "black",
-      });
+      }).then(() => form.reset());
     } catch (error) {
       Swal.fire({
         icon: "error",
-        title: "Oops...",
+        title: "Error",
         text: "Something went wrong!",
         background: currentTheme === "dark" ? "#2E2E2E" : "white",
         confirmButtonColor: "#EAB305",
         color: currentTheme === "dark" ? "white" : "black",
-      });
+      }).then(() => form.reset());
     }
   };
 
@@ -81,7 +81,7 @@ export default function ContactForm({ Page }: { Page: string }) {
           />
           <TextInput
             // label="Email"
-            placeholder="email@gmail.com"
+            placeholder="Email"
             type="email"
             radius="md"
             size="md"
