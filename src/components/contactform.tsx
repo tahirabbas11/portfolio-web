@@ -9,8 +9,10 @@ import {
   hasLength,
   matches,
 } from "@mantine/form";
+import axios from "axios";
+import Swal from "sweetalert2";
 
-export default function ContactForm({ Page }:  { Page: string }) {
+export default function ContactForm({ Page }: { Page: string }) {
   const form = useForm({
     initialValues: {
       name: "",
@@ -24,17 +26,41 @@ export default function ContactForm({ Page }:  { Page: string }) {
     },
   });
 
-  const handleSubmitContactForm = (values: {
+  const handleSubmitContactForm = async (values: {
     name: string;
     email: string;
     message: string;
   }) => {
-    console.log(values);
+    const currentTheme =
+      (localStorage.getItem("mantine-color-scheme-value") as string | null) ||
+      "dark";
+    try {
+      const response = await axios.post("/api/email", values);
+      Swal.fire({
+        icon: "success",
+        title: "Success",
+        text: "Your message has been sent!",
+        background: currentTheme === "dark" ? "#2E2E2E" : "white",
+        confirmButtonColor: "#EAB305",
+        color: currentTheme === "dark" ? "white" : "black",
+      });
+    } catch (error) {
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Something went wrong!",
+        background: currentTheme === "dark" ? "#2E2E2E" : "white",
+        confirmButtonColor: "#EAB305",
+        color: currentTheme === "dark" ? "white" : "black",
+      });
+    }
   };
 
   return (
     <div className="space-y-4">
-      {Page != 'get-in-touch' && <h2 className="text-2xl font-bold lg:text-4xl">Contact Me</h2>}
+      {Page != "get-in-touch" && (
+        <h2 className="text-2xl font-bold lg:text-4xl">Contact Me</h2>
+      )}
       <form
         onSubmit={form.onSubmit(handleSubmitContactForm)}
         className="space-y-4"
