@@ -29,14 +29,14 @@ export const monthNames = [
 // NOTES: month is 0-based index, 0 = January, 11 = December
 export const workData: WorkType[] = [
   {
-    yearStart: 2023,
+    yearStart: 2024,
     monthStart: 3,
     companyName: "Cubix",
     companyLogo: cubix.src,
     jobTitle: "Assistant Software Engineer",
   },
   {
-    yearStart: 2023,
+    yearStart: 2024,
     monthStart: 1,
     yearEnd: 2023,
     monthEnd: 3,
