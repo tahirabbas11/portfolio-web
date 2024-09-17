@@ -6,19 +6,55 @@ import { showNotification } from '@mantine/notifications';
 const ShareButton = () => {
   const handleClick = () => {
     const url = 'https://thetahirabbas.netlify.app/';
-    
-    navigator.clipboard.writeText(url).then(() => {
-      // Show a Mantine notification
-      showNotification({
-        title: 'Copied!',
-        message: 'The website URL has been copied to your clipboard. Feel free to share it!',
-        color: '#FBC418',
-        autoClose: 5000,
-        zIndex: 9999,
+
+    if (navigator.share) {
+      // Use Web Share API if supported
+      navigator.share({
+        title: 'Check this out!',
+        text: 'I found this amazing website and thought you might enjoy it:',
+        url: url,
+      })
+      .then(() => {
+        // Show a Mantine notification on successful share
+        showNotification({
+          title: 'Awesome!',
+          message: 'You\'ve successfully shared the website! Your friends will love it.',
+          color: 'teal',
+          autoClose: 5000,
+          zIndex: 9999,
+        });
+      })
+      .catch((error) => {
+        console.error('Failed to share: ', error);
+        showNotification({
+          title: 'Action Dismissed!',
+          message: 'You dismissed the action. Feel free to try again when ready!',
+          color: 'red',
+          autoClose: 5000,
+          zIndex: 9999,
+        });
       });
-    }).catch((error) => {
-      console.error('Failed to copy URL: ', error);
-    });
+    } else {
+      // Fallback to clipboard copy if Web Share API is not supported
+      navigator.clipboard.writeText(url).then(() => {
+        showNotification({
+          title: 'URL Copied!',
+          message: 'Share it with your friends and spread the word!',
+          color: '#FBC418',
+          autoClose: 5000,
+          zIndex: 9999,
+        });
+      }).catch((error) => {
+        console.error('Failed to copy URL: ', error);
+        showNotification({
+          title: 'Action Dismissed!',
+          message: 'You dismissed the action. Feel free to try again when ready!',
+          color: 'red',
+          autoClose: 5000,
+          zIndex: 9999,
+        });
+      });
+    }
   };
 
   return (
