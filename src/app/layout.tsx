@@ -23,6 +23,8 @@ export const metadata: Metadata = {
 
 import { DefaultAppShell } from "@/components/appshell";
 import MantineCustomProvider from "@/app/mantine-custom-provider";
+import ShareButton from "@/components/sharebutton"; 
+
 
 export default function RootLayout({
   children,
@@ -44,6 +46,7 @@ export default function RootLayout({
           <Notifications position="top-right" zIndex={1000} autoClose={10000} />
 
           <DefaultAppShell>{children}</DefaultAppShell>
+          <ShareButton/>
         </MantineCustomProvider>
       </body>
     </html>

@@ -13,6 +13,8 @@ import axios from "axios";
 import { useState } from "react";
 import Swal from "sweetalert2";
 import { LineWave } from "react-loader-spinner";
+import { showNotification } from "@mantine/notifications";
+
 
 export default function ContactForm({ Page }: { Page: string }) {
   const form = useForm({
@@ -36,37 +38,26 @@ export default function ContactForm({ Page }: { Page: string }) {
     message: string;
   }) => {
     setIsLoading(true);
-    const currentTheme =
-      (localStorage.getItem("mantine-color-scheme-value") as string | null) ||
-      "dark";
     try {
       const response = await axios.post("/api/email", values);
-      Swal.fire({
-        icon: "success",
-        title: "Success",
-        text: "Your message has been sent!",
-        background: currentTheme === "dark" ? "#2E2E2E" : "white",
-        confirmButtonColor: "#EAB305",
-        color: currentTheme === "dark" ? "white" : "black",
-      }).then(() => {
-        setIsLoading(false);
-        form.reset();
+      showNotification({
+        title: 'Success',
+        message: 'Your message has been sent!',
+        color: '#FBC418',
+        autoClose: 5000,
       });
+      setIsLoading(false);
+      form.reset();
     } catch (error) {
-      Swal.fire({
-        icon: "error",
-        title: "Error",
-        text: "Something went wrong!",
-        background: currentTheme === "dark" ? "#2E2E2E" : "white",
-        confirmButtonColor: "#EAB305",
-        color: currentTheme === "dark" ? "white" : "black",
-      }).then(() => {
-        setIsLoading(false);
-        form.reset();
+      showNotification({
+        title: 'Error',
+        message: 'Something went wrong! Please try again.',
+        color: 'red',
+        autoClose: 5000,
       });
+      setIsLoading(false);
     }
   };
-
   
 
   return (

@@ -118,17 +118,31 @@ export function DefaultAppShell({ children }: { children: React.ReactNode }) {
               </Button>
               <Button
                 component={Link}
-                href="/portfolio"
+                href="/resume"
                 size="xs"
                 radius="xl"
                 variant={
-                  pathname.startsWith("/portfolio") ? "filled" : "subtle"
+                  pathname.startsWith("/resume") ? "filled" : "subtle"
                 }
                 classNames={{
                   label: "text-black dark:text-inherit",
                 }}
               >
-                Portfolio
+                Resume
+              </Button>
+              <Button
+                component={Link}
+                href="/projects"
+                size="xs"
+                radius="xl"
+                variant={
+                  pathname.startsWith("/projects") ? "filled" : "subtle"
+                }
+                classNames={{
+                  label: "text-black dark:text-inherit",
+                }}
+              >
+                Projects
               </Button>
               {/* <Button
                 component={Link}
@@ -170,7 +184,7 @@ export function DefaultAppShell({ children }: { children: React.ReactNode }) {
                 }}
                 onClick={handleContacts}
               >
-                Contacts
+                Contact
               </Button>
             </Box>
 
@@ -189,11 +203,19 @@ export function DefaultAppShell({ children }: { children: React.ReactNode }) {
         />
 
         <NavLink
-          label="Portfolio"
+          label="Resume"
           onClick={toggle}
           component={Link}
-          href="/portfolio"
-          active={pathname.startsWith("/portfolio")}
+          href="/resume"
+          active={pathname.startsWith("/resume")}
+        />
+
+        <NavLink
+          label="Projects"
+          onClick={toggle}
+          component={Link}
+          href="/projects"
+          active={pathname.startsWith("/projects")}
         />
 
         <NavLink

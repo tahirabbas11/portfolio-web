@@ -19,6 +19,8 @@ import ContactForm from "@/components/contactform";
 import { portfolioData } from "@/data/portfolio";
 import { workData, monthNames } from "@/data/work";
 import { skills } from "@/data/skills";
+import ViewResumeText from "@/components/viewresumetext"; 
+
 
 export default function Home() {
   return (
@@ -59,9 +61,9 @@ export default function Home() {
                 career and making full use of my qualifications and skills while
                 significantly contributing for the organization&apos;s growth.
               </p>
-
               {/* socials  */}
               <div className="mt-12 flex items-center space-x-8">
+              <ViewResumeText/>
                 <Link
                   href={"https://www.linkedin.com/in/thetahirabbas/"}
                   target="_blank"
