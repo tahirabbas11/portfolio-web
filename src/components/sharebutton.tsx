@@ -12,14 +12,14 @@ const ShareButton = () => {
 
   useEffect(() => {
     // Check if the Web Share API is supported
-    if (navigator.share) {
+    if (typeof navigator.share === 'function') {
       setIsShareSupported(true);
     }
   }, []);
 
   // Hide the buttons after 3 seconds if clicked
   useEffect(() => {
-    let timer;
+    let timer: NodeJS.Timeout | undefined;
     if (clickTriggered) {
       timer = setTimeout(() => {
         setShowOptions(false);
