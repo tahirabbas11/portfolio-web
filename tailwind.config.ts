@@ -26,6 +26,7 @@ const config: Config = {
     extend: {
       animation: {
         "meteor-effect": "meteor 5s linear infinite",
+        "popup": 'popup 0.3s ease-in-out', // Added popup animation
       },
       keyframes: {
         meteor: {
@@ -35,6 +36,10 @@ const config: Config = {
             transform: "rotate(215deg) translateX(-500px)",
             opacity: "0",
           },
+        },
+        popup: {
+          "0%": { transform: "scale(0)", opacity: "0" },
+          "100%": { transform: "scale(1)", opacity: "1" }, 
         },
       },
     },
