@@ -1,5 +1,5 @@
-import { TextInput, TextInputProps, ActionIcon, rem } from "@mantine/core";
-import { IconSearch, IconArrowRight } from "@tabler/icons-react";
+import { TextInput, TextInputProps, ActionIcon, rem } from '@mantine/core';
+import { IconSearch, IconArrowRight } from '@tabler/icons-react';
 
 export function SearchBar(props: TextInputProps) {
   return (

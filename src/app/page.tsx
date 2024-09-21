@@ -1,5 +1,5 @@
-import Image from "next/image";
-import Link from "next/link";
+import Image from 'next/image';
+import Link from 'next/link';
 
 import {
   IconBrandLinkedin,
@@ -7,20 +7,19 @@ import {
   IconBrandX,
   IconMail,
   IconBrandFacebook,
-} from "@tabler/icons-react";
+} from '@tabler/icons-react';
 
-import { Highlight, HeroHighlight } from "@/components/hero-highlight";
-import { Meteors } from "@/components/meteors";
-import { Container } from "@/components/container";
-import { PortfolioCard } from "@/components/portfolio";
-import ContactForm from "@/components/contactform";
+import { Highlight, HeroHighlight } from '@/components/hero-highlight';
+import { Meteors } from '@/components/meteors';
+import { Container } from '@/components/container';
+import { PortfolioCard } from '@/components/portfolio';
+import ContactForm from '@/components/contactform';
 // import photoYudis from "@/assets/images/photo_yudis.jpg";
 
-import { portfolioData } from "@/data/portfolio";
-import { workData, monthNames } from "@/data/work";
-import { skills } from "@/data/skills";
-import ViewResumeText from "@/components/viewresumetext"; 
-
+import { portfolioData } from '@/data/portfolio';
+import { workData, monthNames } from '@/data/work';
+import { skills } from '@/data/skills';
+import ViewResumeText from '@/components/viewresumetext';
 
 export default function Home() {
   return (
@@ -40,7 +39,7 @@ export default function Home() {
               </h2>
 
               <h1 className="mb-16 text-3xl font-bold lg:text-5xl">
-                I&apos;m a{" "}
+                I&apos;m a{' '}
                 <Highlight>
                   <span className="lg:px-4">Web Developer</span>
                 </Highlight>
@@ -63,9 +62,9 @@ export default function Home() {
               </p>
               {/* socials  */}
               <div className="mt-12 flex items-center space-x-8">
-              <ViewResumeText/>
+                <ViewResumeText />
                 <Link
-                  href={"https://www.linkedin.com/in/thetahirabbas/"}
+                  href={'https://www.linkedin.com/in/thetahirabbas/'}
                   target="_blank"
                 >
                   {/* edit the icon so that it resize bigger and glow when hoverring */}
@@ -75,14 +74,14 @@ export default function Home() {
                   />
                 </Link>
 
-                <Link href={"https://github.com/tahirabbas11"} target="_blank">
+                <Link href={'https://github.com/tahirabbas11'} target="_blank">
                   <IconBrandGithub
                     size={35}
                     className="duration-200 hover:scale-150 hover:text-yellow-500"
                   />
                 </Link>
 
-                <Link href={"https://x.com/thetahirabbas"} target="_blank">
+                <Link href={'https://x.com/thetahirabbas'} target="_blank">
                   <IconBrandX
                     size={35}
                     className="duration-200 hover:scale-150 hover:text-yellow-500"
@@ -133,11 +132,11 @@ export default function Home() {
               </div>
 
               <p className="text-sm">
-                {monthNames[work.monthStart]} {work.yearStart} -{" "}
+                {monthNames[work.monthStart]} {work.yearStart} -{' '}
                 {work.yearEnd
-                  ? (work.monthEnd ? monthNames[work.monthEnd] + " " : "") +
+                  ? (work.monthEnd ? monthNames[work.monthEnd] + ' ' : '') +
                     work.yearEnd
-                  : "Present"}
+                  : 'Present'}
               </p>
             </div>
           ))}
@@ -145,7 +144,7 @@ export default function Home() {
 
         {/* go to linkedin button */}
         <Link
-          href={"https://www.linkedin.com/in/thetahirabbas/"}
+          href={'https://www.linkedin.com/in/thetahirabbas/'}
           target="_blank"
           rel="noopener"
           className="flex w-full items-center justify-center rounded-lg border border-yellow-500 p-4 font-semibold text-yellow-500 duration-200 hover:bg-yellow-500 hover:text-black hover:underline"
@@ -200,7 +199,7 @@ export default function Home() {
           <h2 className="text-2xl font-bold lg:text-4xl">Latest Portfolio</h2>
 
           <Link
-            href="/portfolio"
+            href="/projects"
             className="flex-shrink-0 text-sm font-semibold text-yellow-500 hover:underline"
           >
             View all portfolio &rarr;
@@ -212,7 +211,7 @@ export default function Home() {
             <PortfolioCard
               key={portfolio.title}
               portfolio={portfolio}
-              className="min-h-[30rem]"
+              className="min-h-[33rem]"
             />
           ))}
         </div>
@@ -272,7 +271,7 @@ export default function Home() {
   </div>
 </Container> */}
       <Container className="space-y-12 overflow-hidden rounded-lg border-2 border-[#eaeaea] bg-zinc-50 p-4 dark:border dark:border-neutral-600 dark:bg-zinc-900">
-        <ContactForm Page = {'none'}></ContactForm>
+        <ContactForm Page={'none'}></ContactForm>
       </Container>
     </div>
   );

@@ -1,6 +1,6 @@
-"use client";
+'use client';
 
-import { TextInput, Textarea, Button, Container } from "@mantine/core";
+import { TextInput, Textarea, Button, Container } from '@mantine/core';
 import {
   useForm,
   isNotEmpty,
@@ -8,25 +8,24 @@ import {
   isInRange,
   hasLength,
   matches,
-} from "@mantine/form";
-import axios from "axios";
-import { useState } from "react";
-import Swal from "sweetalert2";
-import { LineWave } from "react-loader-spinner";
-import { showNotification } from "@mantine/notifications";
-
+} from '@mantine/form';
+import axios from 'axios';
+import { useState } from 'react';
+import Swal from 'sweetalert2';
+import { LineWave } from 'react-loader-spinner';
+import { showNotification } from '@mantine/notifications';
 
 export default function ContactForm({ Page }: { Page: string }) {
   const form = useForm({
     initialValues: {
-      name: "",
-      email: "",
-      message: "",
+      name: '',
+      email: '',
+      message: '',
     },
     validate: {
-      name: isNotEmpty("Name is required"),
-      message: isNotEmpty("Message is required"),
-      email: isEmail("Invalid email address"),
+      name: isNotEmpty('Name is required'),
+      message: isNotEmpty('Message is required'),
+      email: isEmail('Invalid email address'),
     },
   });
 
@@ -39,7 +38,7 @@ export default function ContactForm({ Page }: { Page: string }) {
   }) => {
     setIsLoading(true);
     try {
-      const response = await axios.post("/api/email", values);
+      const response = await axios.post('/api/email', values);
       showNotification({
         title: 'Success',
         message: 'Your message has been sent!',
@@ -58,11 +57,10 @@ export default function ContactForm({ Page }: { Page: string }) {
       setIsLoading(false);
     }
   };
-  
 
   return (
     <div className="space-y-4">
-      {Page != "get-in-touch" && (
+      {Page != 'get-in-touch' && (
         <h2 className="text-2xl font-bold lg:text-4xl">Contact Me</h2>
       )}
       <form
@@ -79,11 +77,11 @@ export default function ContactForm({ Page }: { Page: string }) {
             radius="md"
             size="md"
             withAsterisk
-            key={form.key("name")}
-            {...form.getInputProps("name")}
+            key={form.key('name')}
+            {...form.getInputProps('name')}
             // error={form.errors.name}
             classNames={{
-              input: "bg-white dark:bg-[#2E2E2E] placeholder-gray-400",
+              input: 'bg-white dark:bg-[#2E2E2E] placeholder-gray-400',
             }}
           />
           <TextInput
@@ -93,10 +91,10 @@ export default function ContactForm({ Page }: { Page: string }) {
             radius="md"
             size="md"
             withAsterisk
-            {...form.getInputProps("email")}
+            {...form.getInputProps('email')}
             error={form.errors.email}
             classNames={{
-              input: "bg-white dark:bg-[#2E2E2E] placeholder-gray-400",
+              input: 'bg-white dark:bg-[#2E2E2E] placeholder-gray-400',
             }}
           />
         </div>
@@ -107,10 +105,10 @@ export default function ContactForm({ Page }: { Page: string }) {
           size="md"
           rows={4}
           withAsterisk
-          {...form.getInputProps("message")}
+          {...form.getInputProps('message')}
           error={form.errors.message}
           classNames={{
-            input: "bg-white dark:bg-[#2E2E2E] placeholder-gray-400",
+            input: 'bg-white dark:bg-[#2E2E2E] placeholder-gray-400',
           }}
         />
         <Button
@@ -133,7 +131,7 @@ export default function ContactForm({ Page }: { Page: string }) {
               lastLineColor=""
             />
           )}
-          {!isLoading && "Submit"}
+          {!isLoading && 'Submit'}
         </Button>
       </form>
     </div>

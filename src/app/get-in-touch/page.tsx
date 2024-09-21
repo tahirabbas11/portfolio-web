@@ -1,16 +1,16 @@
-import { Metadata } from "next";
+import { Metadata } from 'next';
 
-import { PortfolioList } from "@/components/portfolio";
-import { Container } from "@/components/container";
-import ContactForm from "@/components/contactform";
+import { PortfolioList } from '@/components/portfolio';
+import { Container } from '@/components/container';
+import ContactForm from '@/components/contactform';
 
 export const metadata: Metadata = {
-  title: "Portfolio",
-  description: "Portfolio of Tahir Abbas",
+  title: 'Portfolio',
+  description: 'Portfolio of Tahir Abbas',
 };
 
 export default function Portfolio() {
-  let data: string = "get-in-touch";
+  let data: string = 'get-in-touch';
   return (
     <Container>
       <section className="mb-12">

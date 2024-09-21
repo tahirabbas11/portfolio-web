@@ -1,24 +1,25 @@
-"use client";
+'use client';
 
-import { useMemo, useEffect, useState } from "react";
-import { AppShell, rem, Button, NavLink, Box, Burger } from "@mantine/core";
-import { useHeadroom, useDisclosure } from "@mantine/hooks";
-import Image from "next/image";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { useMemo, useEffect, useState } from 'react';
+import { AppShell, rem, Button, NavLink, Box, Burger } from '@mantine/core';
+import { useHeadroom, useDisclosure } from '@mantine/hooks';
+import Image from 'next/image';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import {
   IconBrandLinkedin,
   IconBrandGithub,
   IconBrandX,
   IconMail,
-} from "@tabler/icons-react";
+  IconBrandLinktree,
+} from '@tabler/icons-react';
 
-import { Container } from "@/components/container";
+import { Container } from '@/components/container';
 
-import dynamic from "next/dynamic";
-const ToggleTheme = dynamic(() => import("./theme"));
+import dynamic from 'next/dynamic';
+const ToggleTheme = dynamic(() => import('./theme'));
 
-import photoProfile from "@/assets/images/tahir.jpeg";
+import photoProfile from '@/assets/images/tahir.jpeg';
 
 export function DefaultAppShell({ children }: { children: React.ReactNode }) {
   const [opened, { toggle }] = useDisclosure();
@@ -34,17 +35,17 @@ export function DefaultAppShell({ children }: { children: React.ReactNode }) {
   }, []);
 
   const handleContacts = () => {
-    const contacts = document.getElementById("contacts");
+    const contacts = document.getElementById('contacts');
     if (contacts) {
       setTimeout(() => {
         contacts.scrollIntoView({
-          behavior: "smooth",
+          behavior: 'smooth',
         });
       }, 100);
     }
 
     // make contacts' border blink for 3 times with yellow color
-    const contactsBorder = document.getElementById("contacts")?.style;
+    const contactsBorder = document.getElementById('contacts')?.style;
     if (contactsBorder) {
       let count = 0;
       const blink = setInterval(() => {
@@ -65,7 +66,7 @@ export function DefaultAppShell({ children }: { children: React.ReactNode }) {
       header={{ height: 80, collapsed: !pinned, offset: false }}
       navbar={{
         width: 300,
-        breakpoint: "sm",
+        breakpoint: 'sm',
         collapsed: { desktop: true, mobile: !opened },
       }}
       padding="md"
@@ -84,7 +85,7 @@ export function DefaultAppShell({ children }: { children: React.ReactNode }) {
               />
 
               <Link
-                href={"/"}
+                href={'/'}
                 className="flex items-center justify-center gap-3 rounded-md p-2 transition-all duration-200 ease-in-out hover:bg-yellow-500/10 hover:ring-1 hover:ring-yellow-500"
               >
                 <div className="h-8 w-8 overflow-hidden rounded-full border">
@@ -109,9 +110,9 @@ export function DefaultAppShell({ children }: { children: React.ReactNode }) {
                 href="/"
                 size="xs"
                 radius="xl"
-                variant={pathname === "/" ? "filled" : "subtle"}
+                variant={pathname === '/' ? 'filled' : 'subtle'}
                 classNames={{
-                  label: "text-black dark:text-inherit",
+                  label: 'text-black dark:text-inherit',
                 }}
               >
                 Home
@@ -121,11 +122,9 @@ export function DefaultAppShell({ children }: { children: React.ReactNode }) {
                 href="/resume"
                 size="xs"
                 radius="xl"
-                variant={
-                  pathname.startsWith("/resume") ? "filled" : "subtle"
-                }
+                variant={pathname.startsWith('/resume') ? 'filled' : 'subtle'}
                 classNames={{
-                  label: "text-black dark:text-inherit",
+                  label: 'text-black dark:text-inherit',
                 }}
               >
                 Resume
@@ -135,11 +134,9 @@ export function DefaultAppShell({ children }: { children: React.ReactNode }) {
                 href="/projects"
                 size="xs"
                 radius="xl"
-                variant={
-                  pathname.startsWith("/projects") ? "filled" : "subtle"
-                }
+                variant={pathname.startsWith('/projects') ? 'filled' : 'subtle'}
                 classNames={{
-                  label: "text-black dark:text-inherit",
+                  label: 'text-black dark:text-inherit',
                 }}
               >
                 Projects
@@ -163,10 +160,10 @@ export function DefaultAppShell({ children }: { children: React.ReactNode }) {
                 size="xs"
                 radius="xl"
                 variant={
-                  pathname.startsWith("/get-in-touch") ? "filled" : "subtle"
+                  pathname.startsWith('/get-in-touch') ? 'filled' : 'subtle'
                 }
                 classNames={{
-                  label: "text-black dark:text-inherit",
+                  label: 'text-black dark:text-inherit',
                 }}
                 // onClick={handleContacts}
               >
@@ -178,9 +175,9 @@ export function DefaultAppShell({ children }: { children: React.ReactNode }) {
                 href="#contacts"
                 size="xs"
                 radius="xl"
-                variant={"subtle"}
+                variant={'subtle'}
                 classNames={{
-                  label: "text-black dark:text-inherit",
+                  label: 'text-black dark:text-inherit',
                 }}
                 onClick={handleContacts}
               >
@@ -199,7 +196,7 @@ export function DefaultAppShell({ children }: { children: React.ReactNode }) {
           onClick={toggle}
           component={Link}
           href="/"
-          active={pathname === "/"}
+          active={pathname === '/'}
         />
 
         <NavLink
@@ -207,7 +204,7 @@ export function DefaultAppShell({ children }: { children: React.ReactNode }) {
           onClick={toggle}
           component={Link}
           href="/resume"
-          active={pathname.startsWith("/resume")}
+          active={pathname.startsWith('/resume')}
         />
 
         <NavLink
@@ -215,7 +212,7 @@ export function DefaultAppShell({ children }: { children: React.ReactNode }) {
           onClick={toggle}
           component={Link}
           href="/projects"
-          active={pathname.startsWith("/projects")}
+          active={pathname.startsWith('/projects')}
         />
 
         <NavLink
@@ -223,7 +220,7 @@ export function DefaultAppShell({ children }: { children: React.ReactNode }) {
           onClick={toggle}
           component={Link}
           href="/get-in-touch"
-          active={pathname.startsWith("/get-in-touch")}
+          active={pathname.startsWith('/get-in-touch')}
         />
 
         {/* <NavLink
@@ -260,7 +257,7 @@ export function DefaultAppShell({ children }: { children: React.ReactNode }) {
             className="flex flex-col items-center justify-center space-y-6 rounded-lg lg:flex-row lg:space-x-8 lg:space-y-0"
           >
             <Link
-              href={"mailto:tahir.12868@iqra.edu.pk"}
+              href={'mailto:tahir.12868@iqra.edu.pk'}
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center space-x-2 duration-200 hover:text-yellow-500"
@@ -270,7 +267,7 @@ export function DefaultAppShell({ children }: { children: React.ReactNode }) {
             </Link>
 
             <Link
-              href={"https://www.linkedin.com/in/thetahirabbas/"}
+              href={'https://www.linkedin.com/in/thetahirabbas/'}
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center space-x-2 duration-200 hover:text-yellow-500"
@@ -281,7 +278,7 @@ export function DefaultAppShell({ children }: { children: React.ReactNode }) {
             </Link>
 
             <Link
-              href={"https://github.com/tahirabbas11"}
+              href={'https://github.com/tahirabbas11'}
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center space-x-2 duration-200 hover:text-yellow-500"
@@ -291,7 +288,7 @@ export function DefaultAppShell({ children }: { children: React.ReactNode }) {
             </Link>
 
             <Link
-              href={"https://x.com/thetahirabbas"}
+              href={'https://x.com/thetahirabbas'}
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center space-x-2 duration-200 hover:text-yellow-500"
@@ -299,12 +296,24 @@ export function DefaultAppShell({ children }: { children: React.ReactNode }) {
               <IconBrandX size={35} />
               <div>@thetahirabbas</div>
             </Link>
+
+            <Link
+              href={'https://linktr.ee/thetahirabbas'}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center space-x-2 duration-200 hover:text-yellow-500"
+            >
+              <IconBrandLinktree size={35} />
+              <div>@thetahirabbas</div>
+            </Link>
           </div>
 
           {/* most bottom */}
           <div className="flex flex-col items-center justify-center space-x-2 sm:flex-row">
-            <div>© {currentYear} Tahir Abbas</div>
-            <div>•</div>
+            <div>
+              © {currentYear} <Link href="/">Tahir Abbas</Link>
+            </div>
+            {/* <div>•</div>
             <div>
               Powered by{" "}
               <Link
@@ -315,16 +324,16 @@ export function DefaultAppShell({ children }: { children: React.ReactNode }) {
               >
                 Next.js
               </Link>{" "}
-              {/* and{" "} */}
-              {/* <Link
+              and{" "}
+              <Link
                 href={"https://tailwindcss.com/"}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="underline duration-200 hover:text-yellow-500"
               >
                 Tailwind CSS
-              </Link> */}
-            </div>
+              </Link>
+            </div> */}
           </div>
         </Container>
       </footer>

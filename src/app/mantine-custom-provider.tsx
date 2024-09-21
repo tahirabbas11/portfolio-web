@@ -1,8 +1,8 @@
-"use client";
+'use client';
 
-import { Inter } from "next/font/google";
+import { Inter } from 'next/font/google';
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({ subsets: ['latin'] });
 
 import {
   ColorSchemeScript,
@@ -12,7 +12,7 @@ import {
   defaultVariantColorsResolver,
   VariantColorsResolver,
   parseThemeColor,
-} from "@mantine/core";
+} from '@mantine/core';
 
 const variantColorResolver: VariantColorsResolver = (input) => {
   const defaultResolvedColors = defaultVariantColorsResolver(input);
@@ -23,13 +23,13 @@ const variantColorResolver: VariantColorsResolver = (input) => {
 
   if (
     parsedColor.isThemeColor &&
-    parsedColor.color === "yellow" &&
-    input.variant === "filled"
+    parsedColor.color === 'yellow' &&
+    input.variant === 'filled'
   ) {
     return {
       ...defaultResolvedColors,
-      color: "var(--mantine-color-black)",
-      hoverColor: "var(--mantine-color-black)",
+      color: 'var(--mantine-color-black)',
+      hoverColor: 'var(--mantine-color-black)',
     };
   }
 
@@ -41,7 +41,7 @@ export default function MantineCustomProvider(props: MantineProviderProps) {
     <MantineProvider
       defaultColorScheme="dark"
       theme={{
-        primaryColor: "yellow",
+        primaryColor: 'yellow',
         primaryShade: {
           light: 6,
           dark: 4,

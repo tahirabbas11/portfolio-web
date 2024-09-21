@@ -1,7 +1,7 @@
-"use client";
-import { cn } from "@/utils/cn";
-import { useMotionValue, motion, useMotionTemplate } from "framer-motion";
-import React from "react";
+'use client';
+import { cn } from '@/utils/cn';
+import { useMotionValue, motion, useMotionTemplate } from 'framer-motion';
+import React from 'react';
 
 export const HeroHighlight = ({
   children,
@@ -29,8 +29,8 @@ export const HeroHighlight = ({
   return (
     <div
       className={cn(
-        "group relative min-h-[40rem] w-full bg-white dark:bg-black",
-        containerClassName,
+        'group relative min-h-[40rem] w-full bg-white dark:bg-black',
+        containerClassName
       )}
       onMouseMove={handleMouseMove}
     >
@@ -55,7 +55,7 @@ export const HeroHighlight = ({
         }}
       />
 
-      <div className={cn("relative z-20 h-full min-h-[40rem]", className)}>
+      <div className={cn('relative z-20 h-full min-h-[40rem]', className)}>
         {children}
       </div>
     </div>
@@ -72,24 +72,24 @@ export const Highlight = ({
   return (
     <motion.span
       initial={{
-        backgroundSize: "0% 100%",
+        backgroundSize: '0% 100%',
       }}
       animate={{
-        backgroundSize: "100% 100%",
+        backgroundSize: '100% 100%',
       }}
       transition={{
         duration: 2,
-        ease: "linear",
+        ease: 'linear',
         delay: 0.5,
       }}
       style={{
-        backgroundRepeat: "no-repeat",
-        backgroundPosition: "left center",
-        display: "inline",
+        backgroundRepeat: 'no-repeat',
+        backgroundPosition: 'left center',
+        display: 'inline',
       }}
       className={cn(
         `relative inline-block rounded-lg bg-gradient-to-r from-orange-300 to-yellow-300 px-1 pb-1 dark:from-orange-500 dark:to-yellow-500`,
-        className,
+        className
       )}
     >
       {children}

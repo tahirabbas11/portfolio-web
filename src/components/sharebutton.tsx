@@ -34,13 +34,14 @@ const ShareButton = () => {
       navigator
         .share({
           title: "Check out Tahir Abbas' Portfolio",
-          text: "I found this amazing portfolio of Tahir Abbas, a skilled web developer:",
+          text: 'I found this amazing portfolio of Tahir Abbas, a skilled web developer:',
           url: url,
         })
         .then(() => {
           showNotification({
             title: 'Awesome!',
-            message: "You've successfully shared Tahir Abbas' portfolio! Spread the word.",
+            message:
+              "You've successfully shared Tahir Abbas' portfolio! Spread the word.",
             color: '#eab108',
             autoClose: 5000,
             zIndex: 9999,
@@ -55,17 +56,21 @@ const ShareButton = () => {
   };
 
   const handleCopy = () => {
-    navigator.clipboard.writeText(url).then(() => {
-      showNotification({
-        title: 'Portfolio URL Copied!',
-        message: 'Share Tahir Abbas\' portfolio with your friends and spread the word!',
-        color: '#FBC418',
-        autoClose: 5000,
-        zIndex: 9999,
+    navigator.clipboard
+      .writeText(url)
+      .then(() => {
+        showNotification({
+          title: 'Portfolio URL Copied!',
+          message:
+            "Share Tahir Abbas' portfolio with your friends and spread the word!",
+          color: '#FBC418',
+          autoClose: 5000,
+          zIndex: 9999,
+        });
+      })
+      .catch((error) => {
+        // Handle copy error
       });
-    }).catch((error) => {
-      // Handle copy error
-    });
   };
 
   const toggleOptions = () => {
@@ -92,7 +97,7 @@ const ShareButton = () => {
           {isShareSupported && (
             <button
               onClick={handleShare}
-              className="animate-popup delay-100 rounded-full bg-yellow-500 p-3 font-semibold text-white shadow-md hover:bg-yellow-400 focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:ring-opacity-50"
+              className="animate-popup rounded-full bg-yellow-500 p-3 font-semibold text-white shadow-md delay-100 hover:bg-yellow-400 focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:ring-opacity-50"
               aria-label="Share via Web Share API"
             >
               <IconShare size={20} />
@@ -100,7 +105,7 @@ const ShareButton = () => {
           )}
           <button
             onClick={handleCopy}
-            className="animate-popup delay-200 rounded-full bg-yellow-500 p-3 font-semibold text-white shadow-md hover:bg-yellow-400 focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:ring-opacity-50"
+            className="animate-popup rounded-full bg-yellow-500 p-3 font-semibold text-white shadow-md delay-200 hover:bg-yellow-400 focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:ring-opacity-50"
             aria-label="Copy to Clipboard"
           >
             <IconClipboard size={20} />
@@ -111,7 +116,7 @@ const ShareButton = () => {
       {/* Main Button */}
       <button
         onClick={toggleOptions} // Toggle options on click
-        className='animate-popup delay-200 rounded-full bg-yellow-500 p-4 font-semibold text-white shadow-md hover:bg-yellow-400 focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:ring-opacity-50'
+        className="animate-popup rounded-full bg-yellow-500 p-4 font-semibold text-white shadow-md delay-200 hover:bg-yellow-400 focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:ring-opacity-50"
         aria-label="Share"
       >
         <IconShare3 size={24} />

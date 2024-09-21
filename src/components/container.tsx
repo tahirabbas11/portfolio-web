@@ -1,4 +1,4 @@
-import { cn } from "@/utils/cn";
+import { cn } from '@/utils/cn';
 
 export function Container({
   children,
@@ -9,7 +9,7 @@ export function Container({
 }) {
   return (
     <div className="flex h-full w-full items-center justify-center">
-      <div className={cn("w-full max-w-7xl px-2", className)}>{children}</div>
+      <div className={cn('w-full max-w-7xl px-2', className)}>{children}</div>
     </div>
   );
 }

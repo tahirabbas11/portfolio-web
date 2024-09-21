@@ -1,24 +1,25 @@
 import { IconDownload } from '@tabler/icons-react';
-import { Metadata } from "next";
-import { Container } from "@/components/container";
-import ContactForm from "@/components/contactform";
+import { Metadata } from 'next';
+import { Container } from '@/components/container';
+import ContactForm from '@/components/contactform';
 
 export const metadata: Metadata = {
-  title: "Resume",
-  description: "Resume of Tahir Abbas",
+  title: 'Resume',
+  description: 'Resume of Tahir Abbas',
 };
 
 export default function Portfolio() {
-  let data: string = "resume";
+  let data: string = 'resume';
   return (
     <Container>
       <section className="mb-12">
-      <h2 className="mb-4 text-5xl font-bold">Resume</h2>
+        <h2 className="mb-4 text-5xl font-bold">Resume</h2>
         <p>
-        Please find my resume and detailed information about my professional background here.
+          Please find my resume and detailed information about my professional
+          background here.
         </p>
         <div className="my-12">
-          <div className="flex justify-between items-center mb-4">
+          <div className="mb-4 flex items-center justify-between">
             <h2 className="text-2xl font-bold">Resume - Tahir Abbas</h2>
 
             {/* Download Button with Icon */}
@@ -32,7 +33,7 @@ export default function Portfolio() {
             </a>
           </div>
 
-          <div className="flex flex-col space-y-4 mt-6">
+          <div className="mt-6 flex flex-col space-y-4">
             {/* CV iframe */}
             <iframe
               src="https://docs.google.com/document/d/1cSeHtWRwAqKAtGQoJMUVX2S0NgYsDlls/preview"
@@ -45,7 +46,7 @@ export default function Portfolio() {
           </div>
         </div>
       </section>
-      
+
       {/* <ContactForm Page={data}></ContactForm> */}
     </Container>
   );
