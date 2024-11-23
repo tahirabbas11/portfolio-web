@@ -32,10 +32,10 @@ export default function Home() {
 
             <div className="flex flex-col justify-center lg:col-span-3">
               <h2 className="text-xl font-bold leading-none lg:text-2xl">
-                Hello &#x1F44B;,
+                Hi &#x1F44B;,
               </h2>
               <h2 className="mb-12 text-xl font-bold lg:text-2xl">
-                My name is Tahir Abbas
+                I&apos;m Tahir Abbas
               </h2>
 
               <h1 className="mb-16 text-3xl font-bold lg:text-5xl">
@@ -55,10 +55,13 @@ export default function Home() {
                 and React since 2017. I have created dozens of mobile apps and
                 websites for clients like governments and multinational
                 companies. */}
-                I aim to secure a place where I can gain knowledge and enhance
-                my understandings and my experience by ensuring a responsible
-                career and making full use of my qualifications and skills while
-                significantly contributing for the organization&apos;s growth.
+                I am a Full Stack Developer with a strong focus on backend
+                development, bringing nearly 2 years of professional experience.
+                I design and implement robust backend solutions while working
+                across the full stack. My expertise lies in building scalable
+                and efficient server-side applications, utilizing a variety of
+                frameworks and technologies to create seamless user experiences
+                and powerful backend systems.
               </p>
               {/* socials  */}
               <div className="mt-12 flex items-center space-x-8">
@@ -133,10 +136,12 @@ export default function Home() {
 
               <p className="text-sm">
                 {monthNames[work.monthStart]} {work.yearStart} -{' '}
-                {work.yearEnd
-                  ? (work.monthEnd ? monthNames[work.monthEnd] + ' ' : '') +
-                    work.yearEnd
-                  : 'Present'}
+                {work.yearEnd ? (
+                  (work.monthEnd ? monthNames[work.monthEnd] + ' ' : '') +
+                  work.yearEnd
+                ) : (
+                  <span className="italic">Present</span>
+                )}
               </p>
             </div>
           ))}
@@ -157,40 +162,38 @@ export default function Home() {
       <Container className="space-y-12 overflow-hidden rounded-lg border-2 border-[#eaeaea] bg-zinc-50 p-4 dark:border dark:border-neutral-600 dark:bg-zinc-900">
         <h2 className="text-2xl font-bold lg:text-4xl">Skills</h2>
 
-        <div className="grid grid-cols-1 gap-8 lg:grid-cols-4">
-          {skills.map((skill) => (
-            <div
-              key={skill.name}
-              className="flex flex-col justify-center space-y-4"
-            >
-              <div className="flex items-center space-x-4">
-                <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center overflow-clip rounded-lg bg-transparent">
-                  <img
-                    src={skill.logo}
-                    alt={`${skill.name} Logo`}
-                    className="w-full flex-shrink-0 object-cover"
-                  />
-                </div>
+        <div className="space-y-8">
+          {Object.keys(skills).map((category) => (
+            <div key={category} className="skill-category space-y-4">
+              <h3 className="text-xl font-semibold">
+                {category.replace(/_/g, ' ')}
+              </h3>
 
-                <div>
-                  <h3 className="mb-1 text-lg font-bold leading-tight">
-                    {skill.name}
-                  </h3>
-                </div>
+              {/* Display skills for the category in a flex layout */}
+              <div className="flex flex-wrap gap-6">
+                {skills[category].map((skill) => (
+                  <div key={skill.name} className="flex items-center space-x-4">
+                    {/* Logo container */}
+                    <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center">
+                      <img
+                        src={skill.logo}
+                        alt={`${skill.name} Logo`}
+                        className="h-12 w-12"
+                      />
+                    </div>
+
+                    {/* Skill name with hover effect */}
+                    <div className="hidden lg:block">
+                      <h4 className="text-lg font-medium text-gray-900 hover:text-yellow-500 dark:text-gray-100">
+                        {skill.name}
+                      </h4>
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
           ))}
         </div>
-
-        {/* go to Github button */}
-        {/* <Link
-          href={"https://github.com/tahirabbas11"}
-          target="_blank"
-          rel="noopener"
-          className="flex w-full items-center justify-center rounded-lg border border-yellow-500 p-4 font-semibold text-yellow-500 duration-200 hover:bg-yellow-500 hover:text-black hover:underline"
-        >
-          Go to Github &rarr;
-        </Link> */}
       </Container>
 
       {/* Latest portfolio */}
